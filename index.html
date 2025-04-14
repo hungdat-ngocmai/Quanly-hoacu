@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản Lý Đơn Hàng Họa Cụ</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Quản Lý Đơn Hàng Họa Cụ</h1>
+  </header>
+  
+  <main>
+    <!-- Phần quản lý nhập hàng -->
+    <section id="nhap-hang">
+      <h2>Nhập Hàng</h2>
+      <form id="formNhap">
+        <div class="form-group">
+          <label for="nhapNgay">Ngày nhập:</label>
+          <input type="date" id="nhapNgay" required>
+        </div>
+        <div class="form-group">
+          <label for="nhapMaSP">Mã sản phẩm:</label>
+          <input type="text" id="nhapMaSP" placeholder="VD: H001" required>
+        </div>
+        <div class="form-group">
+          <label for="nhapTenSP">Tên sản phẩm:</label>
+          <input type="text" id="nhapTenSP" placeholder="Tên sản phẩm (họa cụ)" required>
+        </div>
+        <div class="form-group">
+          <label for="nhapSoLuong">Số lượng:</label>
+          <input type="number" id="nhapSoLuong" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="nhapGia">Giá nhập (VNĐ):</label>
+          <input type="number" id="nhapGia" min="0" step="0.01" required>
+        </div>
+        <button type="submit">Lưu đơn nhập</button>
+      </form>
+    </section>
+
+    <!-- Phần quản lý bán hàng & tặng hàng -->
+    <section id="ban-hang">
+      <h2>Bán / Tặng Hàng</h2>
+      <form id="formBan">
+        <div class="form-group">
+          <label for="banNgay">Ngày bán:</label>
+          <input type="date" id="banNgay" required>
+        </div>
+        <div class="form-group">
+          <label for="banMaSP">Mã sản phẩm:</label>
+          <input type="text" id="banMaSP" placeholder="VD: H001" required>
+        </div>
+        <div class="form-group">
+          <label for="banTenSP">Tên sản phẩm:</label>
+          <input type="text" id="banTenSP" placeholder="Tên sản phẩm (họa cụ)" required>
+        </div>
+        <div class="form-group">
+          <label for="banSoLuong">Số lượng:</label>
+          <input type="number" id="banSoLuong" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="banGia">Giá bán (VNĐ):</label>
+          <input type="number" id="banGia" min="0" step="0.01">
+          <small>(Để trống nếu tặng miễn phí)</small>
+        </div>
+        <div class="form-group">
+          <label for="banKhachHang">Khách hàng:</label>
+          <input type="text" id="banKhachHang" placeholder="Tên khách hàng">
+        </div>
+        <button type="submit">Lưu đơn bán/tặng</button>
+      </form>
+    </section>
+
+    <!-- Danh sách đơn hàng -->
+    <section id="danh-sach">
+      <h2>Danh Sách Đơn Hàng</h2>
+      <div class="tables">
+        <div class="table-container">
+          <h3>Đơn Nhập</h3>
+          <table id="tableNhap">
+            <thead>
+              <tr>
+                <th>Ngày</th>
+                <th>Mã SP</th>
+                <th>Tên SP</th>
+                <th>Số lượng</th>
+                <th>Giá nhập</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dữ liệu nhập hàng -->
+            </tbody>
+          </table>
+        </div>
+        <div class="table-container">
+          <h3>Đơn Bán/Tặng</h3>
+          <table id="tableBan">
+            <thead>
+              <tr>
+                <th>Ngày</th>
+                <th>Mã SP</th>
+                <th>Tên SP</th>
+                <th>Số lượng</th>
+                <th>Giá bán</th>
+                <th>Khách hàng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Dữ liệu bán hàng -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Báo cáo thống kê -->
+    <section id="bao-cao">
+      <h2>Báo Cáo Thống Kê Theo Tháng</h2>
+      <form id="formBaoCao">
+        <div class="form-group">
+          <label for="baoCaoThang">Chọn tháng (YYYY-MM):</label>
+          <input type="month" id="baoCaoThang" required>
+        </div>
+        <button type="submit">Xem báo cáo</button>
+      </form>
+      <div id="ketQuaBaoCao">
+        <!-- Kết quả báo cáo sẽ được hiển thị ở đây -->
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
